@@ -34,7 +34,7 @@ install:
 
   # Install the build and runtime dependencies of the project.
   - cmd: conda create -n sksurv-test "%PY_CONDITION%"
-  - cmd: conda install -n sksurv-test "conda-forge::blas=*=openblas" --file ci\appveyor\requirements_%CONDA_PY%.yaml
+  - cmd: conda install -n sksurv-test -c conda-forge "blas=*=openblas" --file ci\appveyor\requirements_%CONDA_PY%.yaml
   - cmd: call %CONDA_INSTALL_LOCN%\Scripts\activate.bat sksurv-test
   # Install cvxpy via pip
   - cmd: pip install --no-cache-dir "cvxpy>=1.0"
