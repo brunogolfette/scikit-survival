@@ -1,6 +1,3 @@
-disallow:
-  - mkl
-
 auto_update_conda: false
 
 always_yes: true
