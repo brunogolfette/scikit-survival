@@ -11,6 +11,6 @@ dependencies:
   - pytest
   - pytest-cov
   - scipy
-  - scikit-learn<0.21
+  - scikit-learn=0.19
   - pandas=0.22
   - blas=*=openblas
