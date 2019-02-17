@@ -1,6 +1,7 @@
 cython>=0.29
 cvxopt>=1.1.9
 numexpr
+numpy=1.14
 pytest
 pytest-cov
 scipy

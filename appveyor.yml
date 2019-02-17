@@ -10,17 +10,14 @@ environment:
       CONDA_PY: "35"
       PY_CONDITION: "python=3.5"
       CONDA_INSTALL_LOCN: "C:\\Miniconda35-x64"
-      NUMPY_VERSION: 1.14
     - TARGET_ARCH: "x64"
       CONDA_PY: "36"
       PY_CONDITION: "python=3.6"
       CONDA_INSTALL_LOCN: "C:\\Miniconda36-x64"
-      NUMPY_VERSION: 1.14
     - TARGET_ARCH: "x64"
       CONDA_PY: "37"
       PY_CONDITION: "python=3.7"
       CONDA_INSTALL_LOCN: "C:\\Miniconda37-x64"
-      NUMPY_VERSION: 1.15
 
 # We always use a 64-bit machine.
 platform:
@@ -37,8 +34,7 @@ install:
 
   # Install the build and runtime dependencies of the project.
   - cmd: conda create -n sksurv-test "%PY_CONDITION%"
-  - cmd: conda install -n sksurv-test "conda-forge::blas=*=openblas" numpy=%NUMPY_VERSION%
-  - cmd: conda install -n sksurv-test --file ci\appveyor\requirements_%CONDA_PY%.yaml
+  - cmd: conda install -n sksurv-test "conda-forge::blas=*=openblas" --file ci\appveyor\requirements_%CONDA_PY%.yaml
   - cmd: call %CONDA_INSTALL_LOCN%\Scripts\activate.bat sksurv-test
   # Install cvxpy via pip
   - cmd: pip install --no-cache-dir "cvxpy>=1.0"
