@@ -5,7 +5,6 @@ channels:
 dependencies:
   - python=3.7
   - cython>=0.29
-  - cvxpy>=1.0
   - cvxopt>=1.1.9
   - numexpr
   - numpy=1.15
