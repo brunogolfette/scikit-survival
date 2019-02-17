@@ -8,3 +8,9 @@ create_default_packages:
 
 disallow:
   - mkl
+
+auto_update_conda: false
+
+always_yes: true
+
+changeps1: false
