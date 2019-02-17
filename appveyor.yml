@@ -30,18 +30,10 @@ install:
   - cmd: call %CONDA_INSTALL_LOCN%\Scripts\activate.bat
   - cmd: conda info -a
 
-  - cmd: |
-      echo "channels:" > C:\Users\appveyor\.condarc
-      echo "  - conda-forge" >> C:\Users\appveyor\.condarc
-      echo "  - defaults" >> C:\Users\appveyor\.condarc
-      echo "create_default_packages:" >> C:\Users\appveyor\.condarc
-      echo "  - pip" >> C:\Users\appveyor\.condarc
-      echo "  - blas=*=openblas" >> C:\Users\appveyor\.condarc
-      echo "disallow:" >> C:\Users\appveyor\.condarc
-      echo "  - mkl" >> C:\Users\appveyor\.condarc
+  - cmd: move /Y ci\appveyor\condarc C:\Users\appveyor\.condarc
 
   # Install the build and runtime dependencies of the project.
-  - cmd: conda env create -n sksurv-test --file ci/appveyor/requirements_%CONDA_PY%.yaml
+  - cmd: conda env create -n sksurv-test --file ci\appveyor\requirements_%CONDA_PY%.yaml
   - cmd: call %CONDA_INSTALL_LOCN%\Scripts\activate.bat sksurv-test
   # Install cvxpy via pip
   - cmd: pip install --no-cache-dir "cvxpy>=1.0"
